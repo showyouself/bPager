@@ -1,7 +1,10 @@
 # bPager
-js分页支持
-
+js分页支持 
  Created by zengbin on 2018/1/23.
+## 问题
+网上搜索分页js插件，总是会遇到的一个问题
+* 样式对不上，例如：我们样式用的是<div>，而插件提供的却是<li>， 又或者class不对
+* 其实我们需要的只是简单的分页json，然后根据场景进行遍历生产分页link就可以了
 ## usage::
 * 1、初始化必要参数：pager.init(1,10,100);
 * 2、取分页数据list： pager.getAllPageNumberList(1);
