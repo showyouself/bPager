@@ -9,8 +9,8 @@
  * bPager.$pagePrev.type = 'prev-li' ; //自定义上一页按钮的class，这样遍历list时，可以直接使用.
  *
  */
-
 bPager = {
+    $debug : false,
     $pageIndex : 1, //当前页
     $pageSize : 10, //每页长度
     $pageTotal : 1, //总页数,最后一页
@@ -58,19 +58,22 @@ bPager = {
         var self = this;
         var retList = self.getPageNumberList(pageIndex);
 
+        var ret = null;
         if (type == 'only_list') {
-            return retList;
+            ret = retList;
         }else if (type == 'with_prev_next') {
             retList.unshift(self.$pagePrev);
             retList.push(self.$pageNext);
-            return retList;
+            ret =  retList;
         }else {
             retList.unshift(self.$pagePrev);
             retList.push(self.$pageNext);
             retList.unshift(self.$pageStart);
             retList.push(self.$pageEnd);
-            return retList;
+            ret = retList;
         }
+        if (self.$debug == true) { console.log(ret); }
+        return ret
     },
     getPageNumberList : function (pageIndex) {
         //获取页码，不含:上一页、下一页、第一页、最后一页
