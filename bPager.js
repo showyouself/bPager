@@ -1,18 +1,11 @@
 /**
  * Created by zengbin on 2018/1/23.
- * usage::
- * 1、初始化必要参数：pager.init(1,10,100);
- * 2、取分页数据list: pager.getAllPageNumberList(1);
- * 3、通过type筛选数据:  pager.getAllPageNumberList(1, 'only_list'); // only_list, with_prev_next
- *
- * 你也可以自定义返回的每个number的type值，例如：
- * bPager.$pagePrev.type = 'prev-li' ; //自定义上一页按钮的class，这样遍历list时，可以直接使用.
- *
+ * https://github.com/showyouself/bPager
  */
+
 bPager = {
     $debug : false,
     $pageIndex : 1, //当前页
-    $pageSize : 10, //每页长度
     $pageTotal : 1, //总页数,最后一页
 
     $pageIndexClass : 'current',
@@ -37,16 +30,14 @@ bPager = {
     $pageNumberList : [],
     $pageNumberLimit : 8, //页码展示多少个
 
-    init : function (pageIndex, pageSize, PageTotal, rowTotal) {
+    init : function (PageTotal, rowTotal, pageSize) {
         var self = this;
-        self.$pageIndex = pageIndex;
-        self.$pageSize = pageSize;
         if (PageTotal) {
             self.$pageTotal = PageTotal;
-        }else if (rowTotal) {
-            self.$pageTotal = Math.ceil(rowTotal/self.$pageSize);
+        }else if (rowTotal && pageSize) {
+            self.$pageTotal = Math.ceil(rowTotal/pageSize);
         }else {
-            console.error('PageTotal、rowTotal，必须二选一');
+            console.error('PageTotal、(rowTotal&pageSize)，必须二选一');
             return false;
         }
 
@@ -126,4 +117,3 @@ bPager = {
         return newList;
     }
 };
-
