@@ -9,18 +9,18 @@
 * 初始化必要参数：pager.init(10);
 * 取分页数据list： pager.getAllPageNumberList(1);
 * 通过type筛选数据：  pager.getAllPageNumberList(1, 'only_list'); // only_list, with_prev_next
-### 函数bPage.init::
+### 函数bPager.init::
 init(pageTotal, rowTotal, pageSize); //pageTotal 和 (rowTotal&pageSize) 必须二选一
 * pageTotal[可选] 总页数
 * rowTotal[可选] 总多少行 
 * pageSize[可选] 每页长度
 
-### 函数bPage.getAllPageNumberList::
+### 函数bPager.getAllPageNumberList::
 pager.getAllPageNumberList(pageIndex, type);
 * pageIndex[必须] 当前页码 
 * type[可选] 返回list过滤(only_list ： 只有页码, with_prev_next ：包含上一页下一页)
 
-### 属性bPage.$pageNumberLimit::
+### 属性bPager.$pageNumberLimit::
 页码list上线多少个
 
 ## tips::
